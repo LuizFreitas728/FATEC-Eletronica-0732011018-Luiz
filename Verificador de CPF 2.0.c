@@ -13,9 +13,6 @@ printf("CPF inválido: Devem ser inseridos nem mais, nem menos que 9 dígitos no
 
 //começa o algoritmo:
 else{
-
-printf("CPF digitado: %i\n \n", e_cpf); //mostra o valor lido na tela em caso de validez
-
 double cpf_decimal = e_cpf; //as operações a seguir devem resultar em valores das casas decimais após a vírgula diferentes de 0 para realizar o programa. Porém os valor lido do CPF DEVE ser inteiro (para não ocorrer erros), e as variáveis a seguir (que necessitam estar em double) só operam quando a variável a ser dividida também estiver em double. Logo, lê-se a entrada em int e após, a converte para o formato double
 
 //Começa-se a execução das operações:
@@ -126,12 +123,12 @@ int s_digito_y_do_cpf;
 
 if (resto2 < 2){
 s_digito_y_do_cpf = 0;  
-printf("CPF obtido: %i - %i%i\n \n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
+printf("\nCPF obtido: %i - %i%i\n \n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
 }
 
 else{
 s_digito_y_do_cpf = 11 - resto2;
-printf("CPF obtido: %i - %i%i\n \n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
+printf("\nCPF obtido: %i - %i%i\n \n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
 } // obtém o dígito Y do CPF e mostra o CPF final obtido
 
 printf("Digite os últimos 2 dígitos: ");
