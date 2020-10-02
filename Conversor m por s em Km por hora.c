@@ -2,13 +2,13 @@
 
 int main(void) {
 
-float e_valor_em_m_por_seg, s_valor_em_km_por_hora; //declara as variáveis
+double e_valor_em_m_por_seg, s_valor_em_km_por_hora; //declara as variáveis
 
-scanf("%f",&e_valor_em_m_por_seg); //lê o valor de entrada
-printf("valor de entrada: %f\n",e_valor_em_m_por_seg); //mostra esse valor na tela
+printf("Insira um valor em m/s: "); //instrução ao usuário
+scanf("%lf",&e_valor_em_m_por_seg); //lê o valor de entrada
 
 s_valor_em_km_por_hora = e_valor_em_m_por_seg*3.6; //executa a operação
-printf("valor de saída: %f\n",s_valor_em_km_por_hora); //mostra o resultado na tela
+printf("\nValor inserido km/h: %lf",s_valor_em_km_por_hora); //mostra o resultado na tela
 
 return 0;
 }
