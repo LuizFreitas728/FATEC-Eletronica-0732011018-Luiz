@@ -4,6 +4,7 @@ int main(void) {
 
 int e_cpf; //declara a variável de entrada: O CPF
 
+printf("Digite seu CPF (somente com os dígitos antes do traço): ");
 scanf("%i",&e_cpf); //lê a variável de entrada
 
 if(e_cpf > 999999999 || e_cpf < 100000000){
@@ -13,7 +14,7 @@ printf("CPF inválido: Devem ser inseridos nem mais, nem menos que 9 dígitos no
 //começa o algoritmo:
 else{
 
-printf("CPF digitado: %i\n", e_cpf); //mostra o valor lido na tela em caso de validez
+printf("CPF digitado: %i\n \n", e_cpf); //mostra o valor lido na tela em caso de validez
 
 double cpf_decimal = e_cpf; //as operações a seguir devem resultar em valores das casas decimais após a vírgula diferentes de 0 para realizar o programa. Porém os valor lido do CPF DEVE ser inteiro (para não ocorrer erros), e as variáveis a seguir (que necessitam estar em double) só operam quando a variável a ser dividida também estiver em double. Logo, lê-se a entrada em int e após, a converte para o formato double
 
@@ -92,11 +93,7 @@ valorx_9 = nona_operacao*10;
 
 int soma = valorx_1 + valorx_2 + valorx_3 + valorx_4 + valorx_5 + valorx_6 + valorx_7 + valorx_8 + valorx_9;
 
-int divisao_por_onze = soma/ 11;
-int variavel_qualquer = divisao_por_onze*11; 
-int resto = soma - variavel_qualquer;
-//o quociente multiplicado pelo divisor (11) resulta no número que efetuará a subtração do dividendo, obtendo o resto.
-
+int resto = soma % 11;
 int s_digito_x_do_cpf;
 
 if (resto < 2){
@@ -124,23 +121,35 @@ valory_10 = nona_operacao*11;
 
 int soma2 = valory_1 + valory_2 + valory_3 + valory_4 + valory_5 + valory_6 + valory_7 + valory_8 +  valory_9 + valory_10;
 
-int divisao_por_onze2 = soma2/ 11;
-int variavel_qualquer2 = divisao_por_onze2*11; 
-int resto2 = soma2 - variavel_qualquer2;
-
+int resto2 = soma2 % 11;
 int s_digito_y_do_cpf;
 
 if (resto2 < 2){
 s_digito_y_do_cpf = 0;  
-printf("CPF verificado: %i - %i%i\n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
+printf("CPF obtido: %i - %i%i\n \n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
 }
 
 else{
 s_digito_y_do_cpf = 11 - resto2;
-printf("CPF verificado: %i - %i%i\n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
+printf("CPF obtido: %i - %i%i\n \n", e_cpf, s_digito_x_do_cpf, s_digito_y_do_cpf);
+} // obtém o dígito Y do CPF e mostra o CPF final obtido
+
+printf("Digite os últimos 2 dígitos: ");
+
+int ultimos_2_digitos;
+scanf("%i",&ultimos_2_digitos);
+
+int divisao_por_10 = ultimos_2_digitos/ 10;
+int operacao_de_resto = ultimos_2_digitos % 10;
+
+if (divisao_por_10 == s_digito_x_do_cpf && operacao_de_resto == s_digito_y_do_cpf){
+printf("o CPF apresentado é válido");
+} 
+
+else{
+printf("o CPF inserido está incorreto");
 }
-}
-// obtém o dígito Y do CPF e mostra o CPF final obtido
+} 
 
 return 0;
 }
